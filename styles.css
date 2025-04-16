@@ -226,7 +226,7 @@ nav ul li a:hover::after {
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-    background-color: var(--secondary);
+    background-color: var(--primary);
     color: #fff;
     padding: 12px 24px;
     text-decoration: none;
@@ -956,6 +956,8 @@ section {
 .testimonial-container {
     display: flex;
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 100%;
+    /* Ensure container takes full width */
 }
 
 .testimonial {
@@ -969,6 +971,8 @@ section {
     border: 1px solid rgba(255, 255, 255, 0.05);
     margin: 0 15px;
     position: relative;
+    box-sizing: border-box;
+    /* Ensure padding is included in width calculation */
 }
 
 .testimonial::before {
@@ -1013,6 +1017,8 @@ section {
 
 .author-info {
     text-align: left;
+    flex: 1;
+    /* Allow author info to take available space */
 }
 
 .author-info h4 {
@@ -1080,6 +1086,8 @@ section {
 
 .client-details {
     display: flex;
+    flex-wrap: wrap;
+    /* Allow details to wrap on smaller screens */
     align-items: center;
     font-size: 14px;
     color: #aaa;
@@ -1090,6 +1098,8 @@ section {
     margin-right: 15px;
     display: flex;
     align-items: center;
+    margin-bottom: 5px;
+    /* Add space between wrapped items */
 }
 
 .client-details i {
@@ -1159,8 +1169,32 @@ section {
 }
 
 @media (max-width: 768px) {
+    .testimonials {
+        padding: 60px 0;
+    }
+
+    .testimonial-slider {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .container {
+        padding: 0 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .testimonial-container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
     .testimonial {
+        min-width: 100%;
+        margin: 0;
         padding: 30px 20px;
+        border-radius: 12px;
     }
 
     .testimonial::before {
@@ -1169,15 +1203,87 @@ section {
 
     .testimonial p {
         font-size: 16px;
+        line-height: 1.6;
     }
 
     .testimonial-avatar {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
     }
 
     .author-info h4 {
-        font-size: 18px;
+        font-size: 16px;
+        margin-bottom: 3px;
+    }
+
+    .author-info p {
+        font-size: 14px;
+    }
+
+    .client-details {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .client-details span {
+        margin-bottom: 4px;
+        font-size: 12px;
+    }
+
+    .testimonial-nav {
+        width: 32px;
+        height: 32px;
+    }
+
+    .testimonial-prev {
+        left: 5px;
+    }
+
+    .testimonial-next {
+        right: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .testimonials {
+        padding: 40px 0;
+    }
+
+    .testimonial {
+        padding: 25px 15px;
+    }
+
+    .testimonial p {
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .testimonial-author {
+        margin-top: 20px;
+        padding-top: 15px;
+    }
+
+    .testimonial-avatar {
+        width: 45px;
+        height: 45px;
+        margin-right: 12px;
+    }
+
+    .testimonial-buttons {
+        margin-top: 30px;
+    }
+
+    .testimonial-btn {
+        width: 10px;
+        height: 10px;
+        margin: 0 6px;
     }
 }
 
@@ -1466,6 +1572,8 @@ section {
     display: block;
     margin: 10px 0;
     transition: var(--transition);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .contact-card:hover .highlight {
@@ -1491,6 +1599,35 @@ section {
     background: var(--primary);
     color: white;
     transform: translateY(-3px);
+}
+
+@media (max-width: 480px) {
+    .contact-card .highlight {
+        font-size: 16px;
+        /* Smaller font size on very small devices */
+    }
+
+    .contact-card h3 {
+        font-size: 20px;
+    }
+
+    .contact-card p {
+        font-size: 16px;
+    }
+
+    .contact-card a.btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .contact-icon-wrapper {
+        width: 60px;
+        height: 60px;
+    }
+
+    .contact-icon {
+        font-size: 24px;
+    }
 }
 
 .emergency-badge {
