@@ -780,6 +780,9 @@ section {
 }
 
 .portfolio-overlay {
+    /* Change opacity from 0 to 1 to make it always visible */
+    opacity: 1;
+    /* Other properties remain the same */
     position: absolute;
     top: 0;
     left: 0;
@@ -789,14 +792,13 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    opacity: 0;
     transition: all 0.4s ease;
     padding: 25px;
 }
 
-.portfolio-item:hover .portfolio-overlay {
+/* .portfolio-item:hover .portfolio-overlay {
     opacity: 1;
-}
+} */
 
 .portfolio-item:hover .portfolio-image {
     transform: scale(1.1);
@@ -806,13 +808,13 @@ section {
 .overlay-content {
     transform: translateY(20px);
     transition: all 0.5s ease;
-    opacity: 0;
-}
-
-.portfolio-item:hover .overlay-content {
-    transform: translateY(0);
     opacity: 1;
 }
+
+/* .portfolio-item:hover .overlay-content {
+    transform: translateY(0);
+    opacity: 1;
+} */
 
 .project-year {
     display: inline-block;
